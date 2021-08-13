@@ -1,43 +1,35 @@
 # PID-controller-for-Semi-active-suspension-
 ## Summary
-We have designed a semi-active suspension system of a vehicle using PID controller by modelling the vehicle as a quarter car model.
+We have designed a semi-active suspension system of a vehicle using PID controller and compared its performance with the Passive suspension system, by modelling the vehicle as a quarter car model. **MATLAB Simulink** will be used to design and  test the Semi-active and Passive suspension system. 
+https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/problem.png
 ## Problem
-![Problem](https://github.com/Abhinandan-Kumbhar/ControlsProject-InvertedPendulum/blob/main/problem.PNG)
+![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/problem.png)
 
-The pendulum is attached to the top of a cart that can move along the x-direction as shown in the figure. The cart is driven by an engine which exerts a horizontal force F . In addition, the cart also experiences a resistance  f  due to its motion.  
-An LQR controller needs to be designed for regulating the force exerted, so that the pendulum can be stabilized in the inverted position. The controller should work even if the pendulum is off the vertical initially. (Though of angle with verticle is measured from +y axis, the actual angle used in this problem is measured with -ve y axis. Therefore, we should expect the pendulum to stabilize with angle pi radians with -ve y axis and 0 angular velocity)
-
+The figure shows the Structural dynamic system of the Quarter car model. The sprung and unsprung mass have the suspension system between them modelled with spring stiffness 'k1' and damping coefficient 'b1'. The tyre is modelled as a spring and damper of constatns 'k2' and 'b2'. The PID controller will change the suspension stiffness 'b1' to damp out oscillations quickly. The feedback to the PID controller is the Suspension body travel which is compared with Zero reference. The performance of the Semi-active suspension is compared with the Passive suspension. Both suspensions will be tested on 3 different road profiles and vehicle body travel will be compared. The semi-active and passive suspension system will be modelled on **MATLAB Simulink**. The Vehicle parameters are tabulated
+![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/model%20parameters.png)
 ## Tasks
-1. Studied the dynamics of problem, obtained governing differential equations and determined the rate of change of state  
-2. Found out the fixed points and linearized about the desired fixed point  
-3. Checked for stability of the fixed point and controllability about the fixed point  
-4. Designed a LQR controller based on the results obtained above using suitable cost matrices  
-5. Solve for the state from the differential equations and plotted the behaviour of the different state components  
-6. Create a graphical simulation of the pendulum-cart system.  
-7. Create a block diagram of the linearized system in Simulink and analyze its behaviour.  
+1. Studied the dynamics of problem, obtained governing differential equations.  
+2. Developed the MATLAB Simulink model to simulate the governing differential equations. 
+3. Tuned and tested the PID controller on different road profiles for improvement in Peak overshoot & Settling time.
+4. Compared the results of Semi-active and Passive system.
 
-## MATLAB codes  
-**pendcart_abhinandan.m**  --  contains the code describing the rate of change of the state of the system  
-**sim_pendcart_abhinandan.m** --  contains the code with the different parameters, initial conditions, matrices, LQR controller, differential equation solver and graph plotter  
-**disp_pendcart_abhinandan.m** --  contains the code for making the graphical simulation of the system  
-**pendcartsim_abhinandan.slx** --  contains the Simulink block diagram of the system  
+## MATLAB codes and Simulink models  
+**passive.slx**  --  contains the simulink model for passive suspension system  
+**active.slx** --  contains the simulink model for semi-active suspension system  
+**code.m** --  adds all the model parameters to the Workspace, and displays the results extracted from Simulink.  
 
-## **How to run the codes**  
-1.  The main code is **sim_pendcart_abhinandan.m**. It has all required parameter values, fixed points and initial condition.  
-2.  Once code is run, the state of system is assumed to be equal to initial state. IT calculates the jacobian matrices and LQR loss function.  
-3.  The optimum gain matrix is determined using LQR function in MATLAB and used to determine the feedback force on the cart.  
-4.  The parent code calls **pendcart_abhinandan.m** to determine rate of change of states due to applied force at given state.
-5.  This process continues until we achieve vertically balanced pendulum.  
-6.  The **disp_pendcart_abhinandan.m** code is automatically launched to display the animation.  
-7.  **pendcartsim_abhinandan.slx** code contains a simulink block diagram, which has shared workspace with above codes and received the all parameters and LQR gain matrix from that workspace.
+## **How to run the codes and models**  
+1.  Firstly run **code.m**. It has all required model parameter values.Once code is run, it adds all the parameters to the MATLAB Workspace. 
+2. Now run the **passive.slx** simulink model. You may change the road profile by clicking on 'fcn' box at the input. The vehicle body travel is visible at the scope 'x1'.     
+3. Now run the **active.slx** simulink model. The vehicle body travel is visible at the scope 'x1'. The parameters of the PID controller can be changed by clicking the PID toolbox in the model. 
 
 ## Results
-### Plots of angular deviation of pendulum from verticle and angular velocity of pendulum
-We expected the pendulum to stabilize with angle pi radians with -ve y axis and 0 angular velocity, that is what we get!!!
-![Problem](https://github.com/Abhinandan-Kumbhar/ControlsProject-InvertedPendulum/blob/main/Plots.png)
-### Demo video
+### Plots of Vehicle body travel for different road profiles
+1. Unit Step Response (Sudden bump on the road)
+![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/step.jpg)
 
+2. For a typical speed-braker
+![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/speed_breaker.jpg)
 
-
-https://user-images.githubusercontent.com/65642096/129035471-aa09f39e-b41b-4a2a-9995-b657b48f2006.mp4
-
+3. For a complete sinusoid input
+![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/complete_sine.jpg)
