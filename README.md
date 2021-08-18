@@ -1,4 +1,13 @@
 # PID-controller-for-Semi-active-suspension-
+## Resume Points
+**PID Controller Based Semi-active Suspension Using MATLAB Simulink**
+1. Developed Simulink models for Passive and PID controlled Semi-active suspension system for a Quarter Car model
+2. Tuned and tested the PID controller on different road profiles with improvement in Peak overshoot & Settling time
+
+
+**PID Controller Based Semi-active Suspension system using MATLAB Simulink**
+1. Tuned & tested PID Controller to improve Peak overshoot & Settling time relative to Passive Suspension system on a Quarter car model
+****
 ## Summary
 We have designed a semi-active suspension system of a vehicle using PID controller and compared its performance with the Passive suspension system, by modelling the vehicle as a quarter car model. **MATLAB Simulink** will be used to design and  test the Semi-active and Passive suspension system. 
 ## Problem
