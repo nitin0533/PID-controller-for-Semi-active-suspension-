@@ -11,9 +11,12 @@
 ## Summary
 
 
+
 We have designed a semi-active suspension system of a vehicle using PID controller and compared its performance with the Passive suspension system, by modelling the vehicle as a quarter car model. **MATLAB Simulink** will be used to design and  test the Semi-active and Passive suspension system. 
 ## Problem
 ![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/problem.png)
+
+
 
 The figure shows the Structural dynamic system of the Quarter car model. The sprung and unsprung mass have the suspension system between them modelled with spring stiffness 'k1' and damping coefficient 'b1'. The tyre is modelled as a spring and damper of constatns 'k2' and 'b2'. The PID controller will change the suspension stiffness 'b1' to damp out oscillations quickly. The feedback to the PID controller is the Suspension body travel which is compared with Zero reference. The performance of the Semi-active suspension is compared with the Passive suspension. Both suspensions will be tested on 3 different road profiles and vehicle body travel will be compared. The semi-active and passive suspension system will be modelled on **MATLAB Simulink**. The Vehicle parameters are tabulated
 ![Problem](https://github.com/nitin0533/PID-controller-for-Semi-active-suspension-/blob/main/model%20parameters.png)
